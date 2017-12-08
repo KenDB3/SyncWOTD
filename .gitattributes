@@ -1,2 +1,7 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+*.asc	eol=crlf
+*.ans	eol=crlf
+*.msg	eol=crlf
+*.txt	eol=crlf
+*.diz	eol=crlf
+*.src	eol=crlf
+*.bin	-text

@@ -1,0 +1,112 @@
+SyncBTC by KenDB3
+bbs.kd3.us
+
+  I) About SyncWOTD
+ II) 
+III) External Program Configuration
+     A) Files
+	 B) modopts.ini
+     C) External Door Config for wotd.js
+ IV) References and Links
+
+--------------------
+
+I) About SyncWOTD
+
+A Word of the Day external program (door) written in javascript for Synchronet 
+BBS and data provided by Wordnik Online Dictionary (https://www.wordnik.com/).
+
+The call to the API requires an API Key, which can be obtained for free, just 
+follow the steps in their FAQ(http://developer.wordnik.com/#!/faq). More 
+details are listed below (II).
+
+Help with getting the date into the yyyy-mm-dd format without being able to use functions like Date.getFullYear was provided by Date Format 1.2.3, found [here](http://blog.stevenlevithan.com/archives/date-time-format).
+
+--------------------
+
+II) Getting a Wordnik API Key
+
+The place to start is with http://developer.wordnik.com/#!/faq
+
+It will first direct you to this page to sign up for a free Wordnik account:
+http://www.wordnik.com/signup
+
+Once you have that set up, it directs you to this page to request a key:
+http://developer.wordnik.com/
+
+--------------------
+
+III) External Program Configuration
+
+A) If you downloaded this as a ZIP file, extract the files to a folder in your
+   /sbbs/xtrn/ directory. This doc assumes you named the folder "SyncWOTD" 
+   (ie. /sbbs/xtrn/SyncWOTD/). 
+   
+   Primary Files Required for the App to Run:
+   ctrl-a_colors.js
+   dateFormat.js
+   wotd.js
+
+B) Add the following section to your ctrl/modopts.ini file (typically located 
+   at /sbbs/ctrl/modopts.ini):
+
+[SyncWOTD]
+wordnikAPIkey = <your API key here>
+
+Change the entry for "wordnikAPIkey = <your API key here>" by adding your API 
+Key from Section II. 
+	Example:
+wordnikAPIkey = 123456789abc1234
+
+C) Set up the External Door via Synchornet Configuration, External Programs
+
+[bitcoin.js]
+ 1: Name                       Word of the Day
+ 2: Internal Code              SYNCWOTD
+ 3: Start-up Directory         ../xtrn/SyncWOTD/
+ 4: Command Line               ?wotd.js
+ 5: Clean-up Command Line      
+ 6: Execution Cost             None
+ 7: Access Requirements        
+ 8: Execution Requirements     
+ 9: Multiple Concurrent Users  Yes
+10: Intercept Standard I/O     No
+11: Native (32-bit) Executable No
+12: Use Shell to Execute       No
+13: Modify User Data           No
+14: Execute on Event           No
+15: Pause After Execution      No
+16: BBS Drop File Type         None
+17: Place Drop File In         Node Directory
+18: Time Options...
+
+NOTE: If you want it to also be used as a Logon Event, you can change #14, 
+"Execute on Event", accordingly. 
+Example:
+14: Execute on Event           Logon
+Which makes it a door you can run from Externals as well as a Logon Event
+or...
+14: Execute on Event           Logon, Only
+Which makes it Only a Logon Event
+
+--------------------
+
+III) References and Links
+
+Download Location:
+http://bbs.kd3.us/kd3doors.ssjs
+
+Project Page:
+https://github.com/KenDB3/SyncWOTD
+
+Data:
+http://developer.wordnik.com
+Reference Doc
+http://developer.wordnik.com/docs.html#!/words/getWordOfTheDay_get_1
+
+ -API Calls:
+  http://api.wordnik.com:80/v4/words.json/wordOfTheDay?date=YYYY-MM-DD&api_key=wordnikAPIkey
+ 
+Other Resources:
+JavaScript for Date Format 1.2.3, found here: 
+http://blog.stevenlevithan.com/archives/date-time-format
