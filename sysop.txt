@@ -2,7 +2,7 @@ SyncBTC by KenDB3
 bbs.kd3.us
 
   I) About SyncWOTD
- II) 
+ II) Getting a Wordnik API Key
 III) External Program Configuration
      A) Files
 	 B) modopts.ini
@@ -20,7 +20,9 @@ The call to the API requires an API Key, which can be obtained for free, just
 follow the steps in their FAQ(http://developer.wordnik.com/#!/faq). More 
 details are listed below (II).
 
-Help with getting the date into the yyyy-mm-dd format without being able to use functions like Date.getFullYear was provided by Date Format 1.2.3, found [here](http://blog.stevenlevithan.com/archives/date-time-format).
+Help with getting the date into the yyyy-mm-dd format without being able to use 
+functions like Date.getFullYear was provided by Date Format 1.2.3, found 
+[here](http://blog.stevenlevithan.com/archives/date-time-format).
 
 --------------------
 
@@ -30,9 +32,29 @@ The place to start is with http://developer.wordnik.com/#!/faq
 
 It will first direct you to this page to sign up for a free Wordnik account:
 http://www.wordnik.com/signup
+Go through the sign up process. 
 
 Once you have that set up, it directs you to this page to request a key:
 http://developer.wordnik.com/
+Fill out the form as directed. Feel free to link to the public Github page for
+this project (https://github.com/KenDB3/SyncWOTD/). 
+
+You should receive an email with your API Key, but then again, you may not. 
+I did not receive my email, but when I checked my profile page 2 days later
+the API key was there at the bottom, so try these instructions before 
+reaching out to Wordnik for help:
+
+1) Log in to Wordnik at https://www.wordnik.com/
+   If you have trouble with that site, try this http://www.wordnik.com/
+2) Go to this page: https://www.wordnik.com/users/edit
+   Scroll to the bottom and you will find a section labeled: 
+   "Your Wordnik API key"
+3) You can now use this for section III, part B.
+
+If you do not find your API Key there, then you should head over to this link:
+https://groups.google.com/forum/#!topic/wordnik-api/JBhk2ob8fwk
+This is a thread on the Wordnik forum for folks that had trouble getting the 
+API Key 
 
 --------------------
 
