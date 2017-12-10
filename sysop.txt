@@ -5,7 +5,7 @@ bbs.kd3.us
  II) Getting a Wordnik API Key
 III) External Program Configuration
      A) Files
-	 B) modopts.ini
+     B) modopts.ini
      C) External Door Config for wotd.js
  IV) References and Links
 
