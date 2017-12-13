@@ -7,6 +7,8 @@
 load("http.js"); //this loads the http libraries which you will need to make requests to the web server
 load(js.exec_dir + "ctrl-a_colors.js"); //predefined a whole bunch of Ctrl-A (Sync) Color Codes
 load(js.exec_dir + "dateFormat.js"); //help with date formatting
+load("utf8_cp437.js"); //convert utf-8 characters to cp437 which is more BBS friendly
+
 var opts=load({},"modopts.js","SyncWOTD"); 
 var wordnikAPIkey = opts.wordnikAPIkey;  //Get an API Key: http://developer.wordnik.com/#!/faq and http://www.wordnik.com/signup and http://developer.wordnik.com/
 
@@ -45,16 +47,16 @@ var note = jsonWOTD.note;
  
 //main function
 function WordOfTheDay() {
-	console.center(darkblue + whitebackground + word.toUpperCase() + gray);console.crlf();console.crlf();
+	console.center(darkblue + whitebackground + utf8_cp437(word.toUpperCase()) + gray);console.crlf();console.crlf();
 
 	for (var i = 0; i < jsonWOTD.definitions.length; i++) {
 		j=i+1
-		console.putmsg(blue + j + ". " + gray + "(" + jsonWOTD.definitions[i].partOfSpeech + ") " + white + jsonWOTD.definitions[i].text);console.crlf();console.crlf();
+		console.putmsg(blue + j + ". " + gray + "(" + jsonWOTD.definitions[i].partOfSpeech + ") " + white + utf8_cp437(jsonWOTD.definitions[i].text));console.crlf();console.crlf();
 	}
 	
-	console.putmsg(blue + "Origin/Notes: \r\n" + white + note);console.crlf();console.crlf();
-	console.putmsg(darkgray + "--------------------------------------------------------------------------------");
-	console.putmsg(gray + "                SyncWOTD written by " + blue + "KenDB3" + gray + " | " + gray + "Powered by " + darkyellow + "Wordnik");
+	console.putmsg(blue + "Origin/Notes: \r\n" + white + utf8_cp437(note));console.crlf();console.crlf();
+	console.putmsg(darkgray + "--------------------------------------------------------------------------------");console.crlf();
+	console.putmsg(gray + "                SyncWOTD written by " + blue + "KenDB3" + gray + " | " + gray + "Powered by " + white + "w" + darkyellow + "\003" + white + "rdnik");
 	console.crlf();console.crlf();
 }
 
@@ -63,9 +65,3 @@ console.pause();
 console.clear();
 console.aborted = false;
 exit();
-
-
-
-
-
-
