@@ -16,7 +16,6 @@ console.clear();
 
 var today = dateFormat("isoDate");
 
-
 console.putmsg(green + "_______________________________________________________________________________");console.crlf();
 console.putmsg(green + " _      _                              _                      _____            ");console.crlf();
 console.putmsg(green + " |  |  /                   /         /  `        /            /    )           ");console.crlf();
@@ -44,6 +43,8 @@ var jsonWOTD = JSON.parse(WOTD);
 
 var word = jsonWOTD.word;
 var note = jsonWOTD.note;
+var totalHeight = console.screen_rows;
+var totalLength = console.screen_columns;
  
 //main function
 function WordOfTheDay() {
@@ -55,7 +56,10 @@ function WordOfTheDay() {
 	}
 	
 	console.putmsg(blue + "Origin/Notes: \r\n" + white + utf8_cp437(note));console.crlf();console.crlf();
-	console.putmsg(darkgray + "--------------------------------------------------------------------------------");console.crlf();
+	console.putmsg(darkgray + "--------------------------------------------------------------------------------");
+	if (totalLength > 80) {
+		console.crlf();
+	}
 	console.putmsg(gray + "                SyncWOTD written by " + blue + "KenDB3" + gray + " | " + gray + "Powered by " + white + "w" + darkyellow + "\003" + white + "rdnik");
 	console.crlf();console.crlf();
 }
